@@ -1,0 +1,56 @@
+.navbar {
+    padding: 25px 10px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(180deg, rgb(5, 3, 56), rgb(97, 0, 60));
+
+  }
+
+.nav-item{
+    font-size: large;
+}
+.navbar-brand{
+    font-size: 50px;
+}
+
+.nav-item{
+
+}
+
+.nav-item>a:hover {
+color: #fff;
+text-shadow:
+  0 0 7px #fff,
+  0 0 10px #fff,
+  0 0 21px #fff,
+  0 0 42px #0fa,
+  0 0 82px #0fa,
+  0 0 92px #0fa,
+  0 0 102px #0fa,
+  0 0 151px #0fa;
+}
+
+
+.navbar-nav>.active>a {
+    color: #fff;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+    
+}
+
+
+.nav-item {
+    width: 200%;
+}
+
+.nav-item a{
+    color: aliceblue;
+    font-size: 30px;
+}

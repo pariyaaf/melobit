@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import {Container , Button , Card , InputGroup , Row, FormControl} from 'react-bootstrap'
+import {useState , useEffect} from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react';
+import './App.css';
+import Header from './components/Header/Header.js';
+import Slider from './components/slider/slider.js';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App w-100">
+          <Row className='row-col-12'>
+          <Header /> 
+          </Row>
+
+          <Row>
+          <Slider/>
+            </Row>  
+     
+      </div>
+    );
+  }
 }
-
 export default App;
