@@ -1,51 +1,33 @@
 import React from 'react';
 import './Header.css';
 import srch from'../../img/icons8-search-50.svg';
-import {Container , Button , Card , InputGroup , Row, FormControl} from 'react-bootstrap'
+import logo from'../../img/favicon.svg';
+
+import {Container , Button , Navbar , Nav , Row, NavDropdown} from 'react-bootstrap'
 
 
 
 const Header = () => (
-  <Container className='m-0 p-0 w-100 '>
-    <Row>
+  <Container className='m-0 p-0 '>
+   
+    <Navbar className='navbar px-5 '  expand="lg">
+      <Container>
+        <Navbar.Brand  className="navbar-brand link-light" href="#home">
+        <img Class="mx-4 img-fluid rounded float-left col-2 " src={logo}  />
+        <strong>Melobit</strong>
+          </Navbar.Brand>
+          
+        <Navbar.Toggle aria-controls="basic-navbar-nav " />
+        <Navbar.Collapse className="navbar-nav  mx-auto justify-text-over" id="basic-navbar-nav">
+          <Nav  className="mx-auto nav-menu h3  border-bottom">
+            <Nav.Link className='px-3 text-light' href="#home">Home</Nav.Link>
+            <Nav.Link className='px-3 text-light' href="#playlist">Playlist</Nav.Link>
+            <Nav.Link className='px-3 text-light' href="#Favorite">Favorite</Nav.Link>
+            <Nav.Link className='px-3 text-light' href="#history">History</Nav.Link>
+          </Nav>
 
-
-  <nav class="navbar  navbar-expand-lg shadow-lg ">
-    <div class="container-fluid">
-    <a class="navbar-brand text-light" href="#">
-    <img Class="mx-3 img-fluid rounded float-left col-4" src="https://www.melobit.com/logo.svg"  />
-    <strong>Melobit</strong>
-    </a>
-    
-  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon "></span>
-  </button>
-
-  <div class="collapse navbar-collapse ">
-    <ul class="navbar-nav   w-50  mx-auto justify-text-center ">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Disabled</a>
-      </li>
-    </ul>
-    
-    <input class="form-control-sm " type="text" placeholder=".form-control-lg"
+        <div className=''>
+          <input class="form-control-sm " type="text" placeholder="Search a song!"
             onKeyPress={event => {
               if (event.key == "Enter") {
                 console.log("hello")
@@ -56,13 +38,12 @@ const Header = () => (
             <button class='btn' onClick={'#'}>
               <img src={srch}></img>
             </button>
-  </div>
-  </div>
+            </div>
+        </Navbar.Collapse>
+      </Container>
 
-</nav>
-
-
-</Row>
+  
+    </Navbar>
   </Container>
 )
 export default Header;

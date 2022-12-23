@@ -1,4 +1,6 @@
-{
-  background: linear-gradient(45deg, rgb(6, 4, 60), rgb(42, 3, 25), rgb(71, 1, 44));
+.App{
+  background: linear-gradient(45deg, rgb(6, 4, 60), rgb(42, 3, 25));
+  min-height:1000px;
+  
 
 }
