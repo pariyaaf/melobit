@@ -1,5 +1,6 @@
 import React from 'react';
-import './Header.css';
+import '../../styles/style.css';
+
 import srch from'../../img/icons8-search-50.svg';
 import logo from'../../img/favicon.svg';
 
@@ -12,8 +13,8 @@ const Header = () => (
    
     <Navbar className='navbar px-5 '  expand="lg">
       <Container>
-        <Navbar.Brand  className="navbar-brand link-light" href="#home">
-        <img Class="mx-4 img-fluid rounded float-left col-2 " src={logo}  />
+        <Navbar.Brand  className="link-light" href="#home">
+        <img className="mx-4 img-fluid rounded float-left  " src={logo}  />
         <strong>Melobit</strong>
           </Navbar.Brand>
           
@@ -27,7 +28,7 @@ const Header = () => (
           </Nav>
 
         <div className=''>
-          <input class="form-control-sm " type="text" placeholder="Search a song!"
+          <input className="form-control-sm " type="text" placeholder="Search a song!"
             onKeyPress={event => {
               if (event.key == "Enter") {
                 console.log("hello")
@@ -35,7 +36,7 @@ const Header = () => (
             }} 
             >
             </input>   
-            <button class='btn' onClick={'#'}>
+            <button className='btn' onClick={'#'}>
               <img src={srch}></img>
             </button>
             </div>
