@@ -14,7 +14,7 @@
   /*slider*/
   .carousel-item img{
     display: flex;
-    border-radius: 10%;
+    border-radius: 5%;
 
 }
 
@@ -173,6 +173,19 @@ Button:hover  {
         color: rgb(255, 255, 255);
         
       }
+      .cardstyle p{
+        margin-top:3px ;
+        text-align: center;
+        font-size: 3vh;
+        font-weight: bolder;
+        text-shadow:
+        0 0 10px rgb(55, 55, 55),
+        0 0 21px #fff,
+        0 0 42px rgb(72, 70, 71),
+        0 0 92px rgb(77, 73, 75),
+        0 0 151px rgb(238, 77, 166);
+      }
+
 
       /*song page*/
       .songPage .backImg img{
@@ -184,14 +197,21 @@ Button:hover  {
 
       .songPage .row  {
         margin: auto;
+        background-color:rgba(0, 0, 0, 0.5);
+        border-radius: 2%;
+
       }
 
+      .songPage .row .col  {
+        margin: 5vh 0vh;
+      }
       .songPage .row img {
         margin: auto;
       }
 
+
     .songPage .card-img-overlay{
-      margin-top: 50vh;
+      margin-top: 30vh;
     }
       .songPage .card *{
         margin: auto;
@@ -200,8 +220,64 @@ Button:hover  {
 
       .songPage  p{
         font-size: 90%;
+        direction: rtl;
         text-align: center;
         color: #fff;
       }
 
+      .songPage .dropdown-toggle{
+        background-color: #222;
+      }
+
+     .songPage div.modal-content{
+      color: #ffffff;
+      direction: rtl;
+      margin-right: 12px;
+     }
+
+     .songPage div.buttons img{
+      width: 40px;
+      margin: 0px 11px;
+
       
+     }
+
+
+
+     /*audio i think*/
+     i.pause-btn{
+      background-image: url("../img/pause.png");
+      min-height: 50px;
+      min-width: 50px;
+
+    }
+    
+    i.play-btn{
+      background-image: url("../img//play.png");
+      min-height: 50px;
+      min-width: 50px;
+    }
+
+
+    /*top artists*/
+    .cardstyle .top-artists img{
+      filter: grayscale(1);
+  
+
+    }
+    .cardstyle .top-artists img:hover ,.figure-caption:hover {
+      filter: grayscale(0);
+
+      }
+
+
+      
+    /*last song*/
+    .cardstyle .last-song img{
+      border-radius: 50%;
+      background-color: transparent;
+      padding: 0px;
+      box-shadow: none;
+      border: solid black 5px;
+  
+    }

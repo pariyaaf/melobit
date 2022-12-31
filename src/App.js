@@ -10,6 +10,12 @@ import Circle from './components/circleImg/circle.js';
 import Cards from './components/cards/card.js';
 import Song from './components/Song.js';
 
+import TopDay from './view/TopDay.js';
+import TopWeek from './view/TopWeek.js';
+
+import TopArtists from './view/TopArtists';
+import Last from './view/LatestSong.js';
+
 
 import Search from './components/search/Search';
 
@@ -24,24 +30,30 @@ class App extends Component {
           <Header /> 
           </Row>
  
-     {/*      <Row>
-          <Slider/>
-            </Row>  
-          <Row>
-            <Circle/>
-          </Row>
-          <Row>
-            <Cards/>
-          </Row> 
-          <Row>
-          </Row>  */}
 
-          {/* * <Row>
-            <Search/>
-          </Row>  */}
-          <Row >
-            <Song/>
-          </Row>
+             <Row>
+            <Slider/>
+          </Row>   
+
+   
+          <Row>
+            <TopDay/>
+          </Row> 
+
+                 <Row>
+            <TopArtists/>
+          </Row>  
+ 
+
+          <Row>
+            <TopWeek/>
+          </Row>  
+          <Row>
+            <Last/>
+          </Row> 
+
+        
+
      
       </div>
     );

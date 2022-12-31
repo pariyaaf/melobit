@@ -18,7 +18,7 @@ function Search() {
 
    async function search() {  
     var sliderParams ={
-      method:'GET',
+      method:'GET'
   } 
     var returnedAlbums = await fetch (' https://api-beta.melobit.com/v1/search?q=' + searchInput +'/0/50',sliderParams )
      .then(Response=>Response.json())

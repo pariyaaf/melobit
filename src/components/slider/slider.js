@@ -1,69 +1,44 @@
 import React from 'react';
 import '../../styles/style.css';
-import {Container , Row,Carousel} from 'react-bootstrap'
-import {useState , useEffect} from 'react'
+import {Container , Row,Carousel} from 'react-bootstrap';
+import {useState , useEffect} from 'react';
+import { getSlider, getTLatestSong } from '../../services/api';
 
 
+function Slider (){
 
-function Slider  (){
+const [slider, setSlider] = useState([])
 
-  const [slider, setSlider] = useState()
-
-  useEffect(()=>{
-    var sliderParams ={
-      method:'GET',
-   
-    
-
+useEffect(()=>{
+const FetchApiSlider = async()=>{
+    const pic = await getSlider()
+    console.log(pic);
+    setSlider(pic);
   }
+  FetchApiSlider();
 
-  const getSlide = async()=>{
-    var pic = await fetch('https://api-beta.melobit.com/v1/song/slider/latest', sliderParams)
-    .then(Response=>Response.json())
-    .then( data => setSlider(data.results))
-    .then(console.log(slider))
-    .then(console.log(slider[0].album.image.cover.url))
-  }
-  getSlide()
-})
-var img = '#'
+},[])
+
     return(
-        <Container className='pt-5 pb-5 mx-auto col-9'>
+        <Container className='pt-5 pb-5 mx-auto col-8'>
     <Row className='justify-content-center'>
-      
     <Carousel>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={slider[0].album.image.cover.url}
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={slider[1].album.image.cover.url}
-          alt="Second slide"
-        />
 
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-        </Carousel.Caption>
-        
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={slider[2].album.image.cover.url}
-          alt="Third slide"
-        />
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-        </Carousel.Caption>
-      </Carousel.Item>
+      {slider.map((s)=>(
+              <Carousel.Item key={s.id}>
+       {s.album &&
+          <img
+            className="d-block w-100"
+           src={s.image.slider.url}
+            alt="First slide"
+          />
+       }
+              <Carousel.Caption>
+                <h3></h3>
+              </Carousel.Caption>
+            </Carousel.Item>
+
+      ))}
     </Carousel>
     </Row>
     </Container>

@@ -13,10 +13,8 @@ const Cards = () => (
         pariy pariya
       </Figure.Caption>
       </Figure>
-
-            
         </Row>
-     
+
     </Container>
   )
             

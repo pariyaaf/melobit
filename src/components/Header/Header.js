@@ -1,11 +1,11 @@
 import React from 'react';
 import '../../styles/style.css';
-
 import srch from'../../img/icons8-search-50.svg';
 import logo from'../../img/favicon.svg';
 
 import {Container , Button , Navbar , Nav , Row, NavDropdown} from 'react-bootstrap'
 
+//اینجا باید لینک سرچ و صفحه اصلی رو بیاری که باهاش بریم به صفحه اصلی
 
 
 const Header = () => (
@@ -27,6 +27,8 @@ const Header = () => (
             <Nav.Link className='px-3 text-light' href="#history">History</Nav.Link>
           </Nav>
 
+
+      
         <div className=''>
           <input className="form-control-sm " type="text" placeholder="Search a song!"
             onKeyPress={event => {
@@ -36,7 +38,8 @@ const Header = () => (
             }} 
             >
             </input>   
-            <button className='btn' onClick={'#'}>
+            <button className='btn' >
+            {/* onClick={'#'} */}
               <img src={srch}></img>
             </button>
             </div>
