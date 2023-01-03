@@ -1,8 +1,8 @@
 import React from 'react';
-import '../../styles/style.css';
+import '../styles/style.css';
 import {Container , Row,Carousel} from 'react-bootstrap';
 import {useState , useEffect} from 'react';
-import { getSlider, getTLatestSong } from '../../services/api';
+import { getSlider, getTLatestSong } from '../services/api';
 
 
 function Slider (){
@@ -27,6 +27,7 @@ const FetchApiSlider = async()=>{
       {slider.map((s)=>(
               <Carousel.Item key={s.id}>
        {s.album &&
+       
           <img
             className="d-block w-100"
            src={s.image.slider.url}

@@ -1,13 +1,14 @@
 import './styles/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Container , Button , Card , InputGroup , Row, FormControl} from 'react-bootstrap'
+import { BrowserRouter as Router, Switch, Route, Redirect,} from "react-router-dom";//in jadide
 import {useState , useEffect} from 'react'
 
+
 import React, { Component } from 'react';
-import Header from './components/Header/Header.js';
-import Slider from './components/slider/slider.js';
-import Circle from './components/circleImg/circle.js';
-import Cards from './components/cards/card.js';
+import Header from './components/Header.js';
+import Slider from './components/slider.js';
+import Cards from './components/card.js';
 import Song from './components/Song.js';
 
 import TopDay from './view/TopDay.js';
@@ -17,7 +18,7 @@ import TopArtists from './view/TopArtists';
 import Last from './view/LatestSong.js';
 
 
-import Search from './components/search/Search';
+import Search from './components/Search';
 
 
 
@@ -26,31 +27,34 @@ class App extends Component {
     
     return (
       <div className="App w-100">
-          <Row className='row-col-12'>
-          <Header /> 
+       <Row>
+           <Header /> 
           </Row>
- 
-
-             <Row>
+           
+          <Row>
             <Slider/>
-          </Row>   
+          </Row>
 
-   
           <Row>
             <TopDay/>
           </Row> 
-
-                 <Row>
+          <Row>
             <TopArtists/>
           </Row>  
  
-
           <Row>
             <TopWeek/>
           </Row>  
+          
           <Row>
             <Last/>
-          </Row> 
+          </Row>  
+
+{/* <Row>
+  <Song></Song>
+          </Row>  */}
+
+
 
         
 

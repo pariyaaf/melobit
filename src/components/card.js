@@ -1,6 +1,6 @@
 import React from 'react';
 import {Container , Image , Card , Figure , Row, FormControl} from 'react-bootstrap'
-import '../../styles/style.css';
+import '../styles/style.css';
 
 
 const Cards = () => (

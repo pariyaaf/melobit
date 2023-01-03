@@ -2,7 +2,7 @@ import axios from "axios"
 
 const getSlider = async()=>{
     const response=await axios.get('https://api-beta.melobit.com/v1/song/slider/latest')
-    return response.data.results;
+        return response.data.results;
   }
   
 
@@ -28,11 +28,22 @@ const getTrendingArtists = async()=>{
     return response.data.results;
   }
 
-  const getSong = async()=>{
-    const response=await axios.get('https://api-beta.melobit.com/v1/song/NThRYnA')
+  const getSongDetails = async(id)=>{
+    var link ='https://api-beta.melobit.com/v1/song/'+id
+    const response=await axios.get(link)
+  
+    return response.data;
+
+  }
+
+  
+  const getSongOrArtist = async(name)=>{
+    var link = 'https://api-beta.melobit.com/v1/search/query/'+name+'/0/30'
+    const response=await axios.get(link)
+   
     return response.data.results;
   }
 
   
-  export{getSlider, getTLatestSong ,getTopDaySong, getTopWeekSong, getTrendingArtists ,getSong}
+  export{getSlider, getTLatestSong ,getTopDaySong, getTopWeekSong, getTrendingArtists ,getSongDetails, getSongOrArtist}
   

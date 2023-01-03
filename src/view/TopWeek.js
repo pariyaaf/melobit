@@ -1,4 +1,4 @@
-import Card from '../components/cards/card.js'
+import Card from '../components/card.js'
 import React from 'react';
 import {Container , Row,Col, Figure} from 'react-bootstrap';
 import {useState , useEffect} from 'react';

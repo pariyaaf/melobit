@@ -1,8 +1,9 @@
 import React from 'react';
-import '../styles/style.css';
-import {Container , Row,Col ,Card,ListGroup, Button, Dropdown,Modal} from 'react-bootstrap'
-import {useState , useEffect} from 'react';
+import axios from "axios"
 
+import '../styles/style.css';
+import {Container , Row,Col ,Card,ListGroup, Button, Dropdown,Modal, NavLink} from 'react-bootstrap'
+import {useState , useEffect} from 'react';
 
 import Shareicon from'../img/shareicon.svg';
 import ShuffleImg from '../img/shuffle.png';
@@ -10,14 +11,7 @@ import SkipImg from '../img/skip.png';
 import PreviousImg from '../img/pravius.png';
 import Replay from '../img/replay.png';
 
-
-
-
-
 import AudioButton from "./audio.js";
-import { getSong } from '../services/api';
-
-
 
 
 function Song  (){
@@ -26,39 +20,53 @@ function Song  (){
     useEffect(()=>{
       
     const FetchApiChoice = async()=>{
-        const Details = await getSong()
-        console.log(Details);
-        setSongDetails(Details);
+      const Details =await axios.get('https://api-beta.melobit.com/v1/song/NThRYnA')
+        setSongDetails(Details.data)
+        console.log(Details.data)
       }
       FetchApiChoice();
     
     },[])
 
+
+    var date = new Date(0);
+    function dur(){
+    date.setSeconds( songDetails.duration);
+    return date.toISOString().substring(14, 19);
+    }
+    
     return(
 
     <Container className=' songPage  pt-5 pb-5 '>
-        <Row className=' backImg col-11 '>
-             {/* <img src={songsDetails.artists.image.thumbnail}/>  */}
-              <img src='https://images.pexels.com/photos/1323206/pexels-photo-1323206.jpeg?cs=srgb&dl=pexels-mixu-1323206.jpg&fm=jpg'/> 
+        <Row className=' backImg col-10 '>
+          {songDetails.image && 
+               <img src={songDetails.image.cover.url} alt="artist"/> 
+          }
         </Row >
 <div className=' card-img-overlay'>
-        <Row className='col-10 justify-content-between ' >
+        <Row className='col-9 justify-content-between ' >
 
         <Col className='col-sm-8 col-md-auto justify-content-between'>
-          <p><strong>اسم اهنگ</strong></p>
-          <p>:ترانه سرا</p><p>a</p>
-          <p>:آهنگساز</p><p>b</p>
-          <p>:تنظیم کننده</p><p>c</p>
-          <p>:سبک</p><p>d</p>
+         <p><h2>{songDetails.title} </h2></p> 
+          <p><h4>Duration :</h4></p>
+          <p>{      songDetails.duration && dur()}</p>
+          <p><h4>Download count :</h4></p>
+          <p>{songDetails.downloadCount}</p>
           
           <Dropdown className='mt-4'> 
             <Dropdown.Toggle className='button-85 w-5'  id="">
-                Download  
+                Download 
             </Dropdown.Toggle>
-            <Dropdown.Menu >
-              <Dropdown.Item>128</Dropdown.Item>
-              <Dropdown.Item>320</Dropdown.Item>
+            {songDetails.audio &&
+            <Dropdown.Menu>
+              <Dropdown.Item className='text-decoration-none text-dark' href={songDetails.audio.medium.url} download>
+              128
+              </Dropdown.Item>
+            <Dropdown.Item className='text-decoration-none text-dark' href={songDetails.audio.high.url} download>
+                320
+              </Dropdown.Item>
             </Dropdown.Menu>
+            }
             <a>
             <img className='mx-4' src={Shareicon}></img>
             </a>
@@ -70,17 +78,19 @@ function Song  (){
         <Col className=' col-sm-8 col-md-4 '>
           <Modal.Dialog>
             <Modal.Header>
-              <Modal.Title>Modal title</Modal.Title>
+              <Modal.Title>{songDetails.Title}</Modal.Title>
             </Modal.Header>
 
             <Modal.Body style={{
-               maxHeight: 'calc(100vh - 210px)',
+               maxHeight: 'calc(110vh - 210px)',
                overflowY: 'auto',
                }}
-                        >
-                One fine body...
-                One fine body...
-                One fine body...
+                >
+                  {
+                    songDetails.lyrics &&
+                    songDetails.lyrics.split("\n").map(place => <div> {place}</div>)
+                  
+                  } 
 
             </Modal.Body>
           </Modal.Dialog>
@@ -88,10 +98,10 @@ function Song  (){
 
         <Col className=' col-sm-8 col-md-5 order-first' >
           <Card className='bg-dark bg-opacity-75 rounded'>
-          <Card.Img className=' img-fluid rounded-circle w-75' src="https://www.mittun.com/wp-content/uploads/2020/11/Instagram-logo-square.jpg" />
-          <Card.Body className=''>
-            <Card.Title>song name</Card.Title>
-            <Card.Text>aron afshar</Card.Text>
+          {songDetails.image && <Card.Img className=' img-fluid rounded-circle w-75' src={songDetails.image.cover.url} />}  
+          <Card.Body className='text-white'>
+            <Card.Title className=''>{songDetails.title}</Card.Title>
+              <Card.Text className='text-light'>{songDetails.artists && songDetails.artists[0].fullName}</Card.Text> 
           </Card.Body>
           <ListGroup className='p-0 m-0'>
         <div>_____________________</div>
@@ -100,7 +110,7 @@ function Song  (){
           <img src={PreviousImg}/>
       
         <React.StrictMode>
-            <AudioButton url="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" />
+            { songDetails.audio &&<AudioButton url={`${songDetails.audio.medium.url}`} />}
         </React.StrictMode>
         <img src={SkipImg}/>
           <img src={Replay}/>
