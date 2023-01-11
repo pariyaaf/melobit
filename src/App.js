@@ -1,24 +1,19 @@
+
+
+
+
 import './styles/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Container , Button , Card , InputGroup , Row, FormControl} from 'react-bootstrap'
-import { BrowserRouter as Router, Switch, Route, Redirect,} from "react-router-dom";//in jadide
+import { Route, Routes} from 'react-router-dom';
 import {useState , useEffect} from 'react'
 
 
 import React, { Component } from 'react';
-import Header from './components/Header.js';
-import Slider from './components/slider.js';
-import Cards from './components/card.js';
-import Song from './components/Song.js';
-
-import TopDay from './view/TopDay.js';
-import TopWeek from './view/TopWeek.js';
-
-import TopArtists from './view/TopArtists';
-import Last from './view/LatestSong.js';
-
-
+import HomePage from './components/home';
 import Search from './components/Search';
+import Header from './components/Header';
+import Song from './components/Song';
 
 
 
@@ -27,32 +22,20 @@ class App extends Component {
     
     return (
       <div className="App w-100">
-       <Row>
-           <Header /> 
-          </Row>
-           
-          <Row>
-            <Slider/>
-          </Row>
 
-          <Row>
-            <TopDay/>
-          </Row> 
-          <Row>
-            <TopArtists/>
-          </Row>  
- 
-          <Row>
-            <TopWeek/>
-          </Row>  
+           
           
           <Row>
-            <Last/>
-          </Row>  
+            <Header/>
+          </Row> 
+          
+          <Routes>
+            <Route path="/" element={<HomePage/>} />
+            <Route path="/search" element={<Search/>} />  
+          </Routes>  
+          
+         
 
-{/* <Row>
-  <Song></Song>
-          </Row>  */}
 
 
 

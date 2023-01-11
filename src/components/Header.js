@@ -1,7 +1,13 @@
+
+
+
+
+
 import React from 'react';
 import '../styles/style.css';
 import srch from'../img/icons8-search-50.svg';
 import logo from'../img/favicon.svg';
+import {Link} from 'react-router-dom';
 
 import {Container , Button , Navbar , Nav , Row, NavDropdown} from 'react-bootstrap'
 
@@ -13,10 +19,12 @@ const Header = () => (
    
     <Navbar className=' header navbar px-5 '  expand="lg">
       <Container>
+        <Link to="/" className='text-decoration-none'>
         <Navbar.Brand  className="link-light" href="#home">
         <img className="mx-4 img-fluid rounded float-left  " src={logo}  />
         <span className>Melobit</span>
           </Navbar.Brand>
+          </Link>
           
         <Navbar.Toggle aria-controls="basic-navbar-nav " />
         <Navbar.Collapse className="navbar-nav  mx-auto justify-text-over" id="basic-navbar-nav">
@@ -29,15 +37,14 @@ const Header = () => (
 
 
       
-        <div className=''>
-          
-            <button className='btn - border-dark abs
-
-            ' >
-            {/* onClick={'#'} */}
+          <Link to="/search"className='text-decoration-none'>
+          <div>
+            <button className='btn - border-dark abs' >
               <img src={srch}></img>
             </button>
             </div>
+            </Link> 
+
         </Navbar.Collapse>
       </Container>
 
@@ -46,3 +53,11 @@ const Header = () => (
   </Container>
 )
 export default Header;
+
+
+
+
+
+
+
+
