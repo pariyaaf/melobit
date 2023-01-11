@@ -3,7 +3,7 @@
 import React from 'react';
 import '../styles/style.css';
 import srch from'../img/icons8-search-50.svg';
-import logo from'../img/favicon.svg';
+import logo from'../img/logo.png';
 import {Link} from 'react-router-dom';
 
 import {Container , Button , Navbar , Nav , Row, NavDropdown} from 'react-bootstrap'

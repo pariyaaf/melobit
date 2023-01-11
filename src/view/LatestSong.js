@@ -35,7 +35,7 @@ const FetchApiLast = async()=>{
               >
               </Figure.Image>
             }
-            <Figure.Caption >
+            <Figure.Caption className='' >
             {s.title}
           </Figure.Caption>
           </Figure>

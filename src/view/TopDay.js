@@ -35,8 +35,8 @@ return(
        >
        </Figure.Image>
     }
-    <Figure.Caption className='cardstyle'>
-    {s.fullName}
+    <Figure.Caption className='cardstyle mx-auto'>
+    {s.title}
   </Figure.Caption>
   </Figure>
       </Col>

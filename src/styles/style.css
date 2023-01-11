@@ -193,7 +193,7 @@ Button:hover  {
       }
 
       .cardstyle .figure-caption{
-        max-width: 20px;
+        max-width: 15vh;
         max-height: auto;
         text-align: center;
         margin-top: 15px;
