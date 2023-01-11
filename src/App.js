@@ -29,6 +29,8 @@ class App extends Component {
           </Row> 
           
           <Routes>
+          <Route path="/Song/:id" element={<Song />} />
+          <Route path="/search/Song/:id" element={<Song/>} />
             <Route path="/" element={<HomePage/>} />
             <Route path="/search" element={<Search/>} />  
           </Routes>  

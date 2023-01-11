@@ -3,10 +3,11 @@ import '../styles/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Container , Button , Card , InputGroup , Row, FormControl, Col} from 'react-bootstrap'
 import {useState , useEffect} from 'react'
+import {Link} from 'react-router-dom';
+
 
 import srch from'../img/icons8-search-50.svg';
 import { getSongOrArtist } from '../services/api';
-import { type } from '@testing-library/user-event/dist/type';
 
 
 function Search() {
@@ -58,6 +59,8 @@ function Search() {
 
                 }
                     return (
+                      <Link to={`search/Song/${Details.id}`} aria-label="Close" className='text-decoration-none'>
+
                       <Row key={Details.id}  className='cardstyle bg-light bg-opacity-25 my-3 mx-5 col-5 rounded'>
                         <Col className='col-4 p-3'>
                         <img className='img-fluid p-0' src={Details.image.cover_small.url} />
@@ -69,17 +72,10 @@ function Search() {
      
                         </Col>
                       </Row>
+                      </Link>
               ) 
-            
-             
-              
-
-           
+          
                 }
-
-            
-            
-            
             )
             
             } 

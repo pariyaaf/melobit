@@ -3,6 +3,8 @@ import React from 'react';
 import {Container , Row,Col, Figure} from 'react-bootstrap';
 import {useState , useEffect} from 'react';
 import { getTopDaySong } from '../services/api.js';
+import {Link} from 'react-router-dom';
+
 
 
 function DeySongs (){
@@ -29,11 +31,14 @@ return(
     <Col className='col-2 mx-3'>
       <Figure key={s.id}>
     {s.image &&
-      <Figure.Image
-         className="d-block w-100"
-        src={s.image.cover.url}
-       >
-       </Figure.Image>
+      <Link to={`Song/${s.id}`} aria-label="Close" className='text-decoration-none'>
+
+        <Figure.Image
+          className="d-block w-100"
+          src={s.image.cover.url}
+        >
+        </Figure.Image>
+      </Link>
     }
     <Figure.Caption className='cardstyle mx-auto'>
     {s.title}

@@ -3,6 +3,8 @@ import {Container , Row,Figure, Col} from 'react-bootstrap';
 import {useState , useEffect} from 'react';
 import { getTLatestSong, getTopDaySong, getTrendingArtists } from '../services/api.js';
 import '../styles/style.css'
+import {Link} from 'react-router-dom';
+
 
 function LastSongs(){
 
@@ -27,13 +29,16 @@ const FetchApiLast = async()=>{
 
           {Last.map((s)=>(
 
-              <Figure key={s.id} className="mx-3"> 
+          <Figure key={s.id} className="mx-3"> 
             {s.image &&
-              <Figure.Image
-                className="d-block w-100"
-                src={s.image.cover.url}
-              >
-              </Figure.Image>
+              <Link to={`Song/${s.id}`} aria-label="Close" className='text-decoration-none'>
+
+                <Figure.Image
+                  className="d-block w-100"
+                  src={s.image.cover.url}
+                >
+                </Figure.Image>
+              </Link>
             }
             <Figure.Caption className='' >
             {s.title}

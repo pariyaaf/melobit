@@ -10,17 +10,20 @@ import ShuffleImg from '../img/shuffle.png';
 import SkipImg from '../img/skip.png';
 import PreviousImg from '../img/pravius.png';
 import Replay from '../img/replay.png';
-
 import AudioButton from "./audio.js";
+import {useParams} from 'react-router-dom';
+
 
 
 function Song  (){
+  const params = useParams();
+
   const [songDetails, setSongDetails] = useState([])
 
     useEffect(()=>{
       
     const FetchApiChoice = async()=>{
-      const Details =await axios.get('https://api-beta.melobit.com/v1/song/NThRYnA')
+      const Details = await axios.get(`https://api-beta.melobit.com/v1/song/${params.id}`)
         setSongDetails(Details.data)
         console.log(Details.data)
       }
@@ -37,14 +40,14 @@ function Song  (){
     
     return(
 
-    <Container className=' songPage  pt-5 pb-5 '>
-        <Row className=' backImg col-10 '>
+    <Container className=' songPage  pt-4 '>
+        <Row className=' backImg col-9'>
           {songDetails.image && 
                <img src={songDetails.image.cover.url} alt="artist"/> 
           }
         </Row >
 <div className=' card-img-overlay'>
-        <Row className='col-9 justify-content-between ' >
+        <Row className='col-8 justify-content-between ' >
 
         <Col className='col-sm-8 col-md-auto justify-content-between'>
          <p><h2>{songDetails.title} </h2></p> 
@@ -82,6 +85,7 @@ function Song  (){
             </Modal.Header>
 
             <Modal.Body style={{
+              marginRight:'5px',
                maxHeight: 'calc(110vh - 210px)',
                overflowY: 'auto',
                }}
@@ -104,7 +108,7 @@ function Song  (){
               <Card.Text className='text-light'>{songDetails.artists && songDetails.artists[0].fullName}</Card.Text> 
           </Card.Body>
           <ListGroup className='p-0 m-0'>
-        <div>_____________________</div>
+        {/* <div>_____________________</div> */}
         <div className=' buttons row row-cols-6 m-4 bg-dark bg-opacity-75'>
           <img src={ShuffleImg}/>
           <img src={PreviousImg}/>
