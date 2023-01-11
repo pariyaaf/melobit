@@ -7,7 +7,7 @@ const getSlider = async()=>{
   
 
   const getTopDaySong = async()=>{
-    const response=await axios.get('https://api-beta.melobit.com/v1/song/top/day/0/10')
+    const response=await axios.get('https://api-beta.melobit.com/v1/song/top/day/0/20')
     return response.data.results;
   }
 
