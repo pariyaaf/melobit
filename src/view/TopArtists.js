@@ -21,7 +21,7 @@ const FetchApiTrendingArtists = async()=>{
      return(
       <Container className='cardstyle w-75 align-items-center pt-4 '>
       <Row className=' justify-content-between top-artists'>
-        <p className='text-light'>Top Artits</p>
+        <p className='text-light'>Top Artists</p>
        {Artist.map((s)=>(
         <Col>
           <Figure key={s.id}>

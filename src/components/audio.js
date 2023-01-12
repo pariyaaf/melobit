@@ -42,7 +42,7 @@ class AudioButton extends Component {
     return (
       <>
         {!playing && (
-          <i className="btn pause-btn" onClick={this.startAudio}></i>
+          <i className="btn play-btn" onClick={this.startAudio}></i>
         )}
         {playing && <i className="btn pause-btn" onClick={this.pauseAudio}></i>}
 

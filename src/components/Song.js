@@ -28,6 +28,7 @@ function Song  (){
         console.log(Details.data)
       }
       FetchApiChoice();
+
     
     },[])
 
@@ -41,44 +42,44 @@ function Song  (){
     return(
 
     <Container className=' songPage  pt-4 '>
-        <Row className=' backImg col-9'>
+        <Row className=' backImg col-10'>
           {songDetails.image && 
                <img src={songDetails.image.cover.url} alt="artist"/> 
           }
         </Row >
-<div className=' card-img-overlay'>
-        <Row className='col-8 justify-content-between ' >
+      <div className=' card-img-overlay'>
+        <Row className='col-9 justify-content-center' >
 
-        <Col className='col-sm-8 col-md-auto justify-content-between'>
-         <p><h2>{songDetails.title} </h2></p> 
-          <p><h4>Duration :</h4></p>
-          <p>{      songDetails.duration && dur()}</p>
-          <p><h4>Download count :</h4></p>
-          <p>{songDetails.downloadCount}</p>
-          
-          <Dropdown className='mt-4'> 
-            <Dropdown.Toggle className='button-85 w-5'  id="">
-                Download 
-            </Dropdown.Toggle>
-            {songDetails.audio &&
-            <Dropdown.Menu>
-              <Dropdown.Item className='text-decoration-none text-dark' href={songDetails.audio.medium.url} download>
-              128
-              </Dropdown.Item>
-            <Dropdown.Item className='text-decoration-none text-dark' href={songDetails.audio.high.url} download>
-                320
-              </Dropdown.Item>
-            </Dropdown.Menu>
-            }
-            <a>
-            <img className='mx-4' src={Shareicon}></img>
-            </a>
+          <Col className='col-sm-8 col-md-auto justify-content-between my-auto border p-5'>
+          <p><h3>{songDetails.title} </h3></p> 
+            <p><h5>Duration :</h5></p>
+            <p>{songDetails.duration && dur()}</p>
+            <p><h5>Download count :</h5></p>
+            <p>{songDetails.downloadCount}</p>
+            
+            <Dropdown className='mt-4'> 
+              <Dropdown.Toggle className='button-85 w-5'  id="">
+                  Download 
+              </Dropdown.Toggle>
+              {songDetails.audio &&
+              <Dropdown.Menu>
+                <Dropdown.Item className='text-decoration-none text-dark' href={songDetails.audio.medium.url} download>
+                128 quality
+                </Dropdown.Item>
+              <Dropdown.Item className='text-decoration-none text-dark' href={songDetails.audio.high.url} download>
+                  320 quality
+                </Dropdown.Item>
+              </Dropdown.Menu>
+              }
+              <a>
+              <img className='mx-4' src={Shareicon}></img>
+              </a>
 
-          </Dropdown>
-        </Col>
+            </Dropdown>
+          </Col>
 
               
-        <Col className=' col-sm-8 col-md-4 '>
+        <Col className=' col-sm-8 col-md-3 '>
           <Modal.Dialog>
             <Modal.Header>
               <Modal.Title>{songDetails.Title}</Modal.Title>
@@ -100,24 +101,22 @@ function Song  (){
           </Modal.Dialog>
         </Col>
 
-        <Col className=' col-sm-8 col-md-5 order-first' >
+        <Col className=' col-sm-8 col-md-5 p-4 order-first' >
           <Card className='bg-dark bg-opacity-75 rounded'>
-          {songDetails.image && <Card.Img className=' img-fluid rounded-circle w-75' src={songDetails.image.cover.url} />}  
-          <Card.Body className='text-white'>
-            <Card.Title className=''>{songDetails.title}</Card.Title>
+          {songDetails.image && <Card.Img className=' img-fluid rounded-circle border w-75' src={songDetails.image.cover.url} />}  
+            <Card.Body className='text-white'>
+              <Card.Title className=''>{songDetails.title}</Card.Title>
               <Card.Text className='text-light'>{songDetails.artists && songDetails.artists[0].fullName}</Card.Text> 
-          </Card.Body>
+            </Card.Body>
           <ListGroup className='p-0 m-0'>
-        {/* <div>_____________________</div> */}
-        <div className=' buttons row row-cols-6 m-4 bg-dark bg-opacity-75'>
+        <div className=' buttons row row-cols-6 m-3 bg-dark bg-opacity-75'>
           <img src={ShuffleImg}/>
           <img src={PreviousImg}/>
-      
         <React.StrictMode>
-            { songDetails.audio &&<AudioButton url={`${songDetails.audio.medium.url}`} />}
+          { songDetails.audio &&<AudioButton url={`${songDetails.audio.medium.url}`} />}
         </React.StrictMode>
         <img src={SkipImg}/>
-          <img src={Replay}/>
+        <img src={Replay}/>
         </div>
 
       </ListGroup>

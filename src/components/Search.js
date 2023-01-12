@@ -6,7 +6,7 @@ import {useState , useEffect} from 'react'
 import {Link} from 'react-router-dom';
 
 
-import srch from'../img/icons8-search-50.svg';
+import srch from'../img/icons8-search-48.png';
 import { getSongOrArtist } from '../services/api';
 
 
@@ -56,23 +56,24 @@ function Search() {
               else{
                   var Details = s.artist
                   var name = Details.fullName
+                  console.log(Details.id)
+
 
                 }
                     return (
-                      <Link to={`search/Song/${Details.id}`} aria-label="Close" className='text-decoration-none'>
+                      <Link to={`/Song/${Details.id}`}className='text-decoration-none '>
 
-                      <Row key={Details.id}  className='cardstyle bg-light bg-opacity-25 my-3 mx-5 col-5 rounded'>
-                        <Col className='col-4 p-3'>
-                        <img className='img-fluid p-0' src={Details.image.cover_small.url} />
-                        </Col>
-                        <Col  className="my-auto">
-                                
-                        <p> {type}:</p>
+                        <Row key={Details.id}  className='cardstyle bg-light bg-opacity-25 my-3 m-2 rounded'>
+                          <Col className='col-4 p-3'>
+                          <img className='img-fluid p-0' src={Details.image.cover_small.url} />
+                          </Col>
+                          <Col  className="my-auto">       
+                            <p className='m-2 fw-bold'> {type}:</p>
                             <p> {name}</p>
-     
-                        </Col>
-                      </Row>
+                          </Col>
+                        </Row>
                       </Link>
+
               ) 
           
                 }
