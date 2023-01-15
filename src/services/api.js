@@ -19,7 +19,7 @@ const getTLatestSong = async () => {
 
 
 const getTopWeekSong = async () => {
-  const response = await axios.get('https://api-beta.melobit.com/v1/song/top/week/0/10')
+  const response = await axios.get('https://api-beta.melobit.com/v1/song/top/week/0/13')
   return response.data.results;
 }
 
